@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    {% block css-block%}
+    {% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'index' %}">BRAND</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{% url 'admin:index' %}">ADMIN <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="{% url 'myApp:help' %}">HELP</a>
+      <a class= "nav-item nav-link" href="{% url 'myApp:register' %}">SIGN UP</a>
+      {% if user.is_authenticated %}
+      <a class="nav-item nav-link" href="{% url 'user_logout' %}">LOGOUT</a>
+      {% else %}
+      <a class="nav-item nav-link" href="{% url 'myApp:user_login' %}">LOGIN</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
+  <div class="container">
+    {% block body_block %}
+    {% endblock %}
+  </div>
+
+  </body>
+</html>

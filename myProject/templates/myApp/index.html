@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends "myApp/base.html" %}
+{%load staticfiles%}
+{% block css-block %}
+<link rel="stylesheet" href="{ % static "css/index.css" %}">
+{% endblock %}
+  {% block body_block%}
+    <h3>Lazy Sundays</h3>
+    <img src="{%static "images/hey.jpg"%}" alt="Poem not found">
+    {% endblock %}

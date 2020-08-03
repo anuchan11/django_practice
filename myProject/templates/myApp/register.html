@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "myApp/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+{% if registered %}
+<h3>Thank you for registering!!</h3>
+{% else %}
+<form  enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  {{ user_form.as_p }}
+  {{user_portfolioform.as_p}}
+  <input type="submit" name="" value="REGISTER">
+</form>
+{% endif %}
+
+{% endblock%}

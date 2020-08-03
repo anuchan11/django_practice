@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>USER DETAILS</title>
+    <link rel="stylesheet" href="{% static "css/users.css" %}">
+  </head>
+  <body>
+    <h2>Please find the below details of students:</h2>
+    {% if users %}
+    <ol>
+      {% for user in users %}
+      <li>User information:</li>
+      <ul>
+        <li>First name: {{user.fname}}</li>
+        <li>Last name: {{user.lname}}</li>
+        <li>Email ID: {{user.email}}</li>
+      </ul>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <p>NO RECORD FOUND!!</p>
+    {% endif %}
+  </body>
+</html>
